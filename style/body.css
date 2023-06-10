@@ -13,6 +13,13 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
+.top-header {
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+}
+
 .top {
     display: flex;
     align-items: center;
@@ -28,7 +35,7 @@ body {
     border-radius: 50px;
 }
 
-h1 {
+.top h1 {
     background-color: black;
     color: #DCCA87;
     font-family: 'Cormorant Upright';
@@ -46,37 +53,42 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    width: 100%;
-    position: fixed;
-    padding-left: 30px;
+    width: 100vw;
+    padding: 30px;
+    padding-left: 60px;
+}
+
+.manu-bar {
+    display: none;
 }
 
 
-nav ul {
+
+
+.nav {
     display: flex;
-    gap: 4em;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    font-family: 'Cormorant Upright';
+    font-weight: 600px;
+    font-size: 21px;
+
+}
+
+.nav li a {
+    display: flex;
+    justify-content: space-between;
     text-decoration: none;
     align-items: center;
     list-style: none;
-}
-
-nav ul li {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li a {
     color: #DCCA87;
-    font-family: 'Cormorant Upright';
-    font-weight: 500;
-    text-decoration: none;
-    font-size: 17px;
-    letter-spacing: 0.04em;
-    display: flex;
-    align-items: center;
-    border: none;
     transition: 0.5s ease;
+}
+
+li a:hover {
+    color: #DCCA87;
+    transform: scale(1.2);
 }
 
 .about-dropdown {
@@ -101,26 +113,20 @@ nav ul li a {
     padding: 8px 10px;
     text-decoration: none;
     display: block;
-    width: 140px;
+    width: 200px;
 }
 
 .about-dropdown p a:hover {
     background-color: white;
     border-radius: 10px;
-    width: 120px;
+    width: 200px;
 }
 
 .about-dropdown:hover .aboutus-content {
     display: block;
 }
 
-
-ul a:hover {
-    color: #DCCA87;
-    transform: scale(1.2);
-}
-
-button {
+.button {
     background-color: transparent;
     display: flex;
     justify-content: space-between;
@@ -131,7 +137,7 @@ button {
     border: none;
 }
 
-button a {
+.button a {
     color: #DCCA87;
     font-family: 'Cormorant Upright';
     font-weight: 700px;
@@ -142,14 +148,20 @@ button a {
     margin-right: 8px;
     margin-bottom: 10px;
     display: inline-block;
-    width: 100;
+    width: 100%;
     position: relative;
+    transition: 0.5s ease;
 
 }
 
-button a::after {
+.button a:hover {
+    transform: scale(0.8);
+}
+
+
+.button a::after {
     content: "";
-    width: 0%;
+    width: 100%;
     background-color: white;
     position: absolute;
     left: 0;
@@ -157,20 +169,18 @@ button a::after {
     transition: all 0.4s ease;
 }
 
+.button a:hover::after {
 
-button a:hover::after {
     width: 100%;
 }
-button img {
+
+.button img {
     width: 50px;
     height: 50px;
     border-radius: 25px;
     transition: 0.5s ease;
 }
 
-button img:hover {
-    transform: scale(1.2);
-}
 
 .search {
     display: flex;
@@ -192,6 +202,224 @@ button img:hover {
     color: black;
 }
 
-input:focus~.search {
-    border: 2px solid #DCCA87;
+@media screen and (max-width :576px) {
+    .top-header {
+        position: fixed;
+        margin: 0px;
+        padding: 0px;
+        width: 100vw;
+    }
+
+    .top {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        background-color: black;
+        margin: 0px;
+        padding: 10px;
+    }
+
+    .top img {
+        display: none;
+
+    }
+
+    .top h1 {
+        background-color: black;
+        color: #DCCA87;
+        font-family: 'Cormorant Upright';
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        font-weight: bolder;
+    }
+
+    header {
+        background-image: url(./background.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: block;
+        gap: 3px;
+        align-items: center;
+        width: 100%;
+        padding: 9px;
+        font-size: 10px;
+        position: relative;
+
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        gap: 1em;
+        text-decoration: none;
+        align-items: center;
+        list-style: none;
+        top: 70px;
+        right: 70px;
+        width: 100%;
+        transform: translateX(100%);
+
+    }
+
+
+
+    .nav li a {
+        display: inline-block;
+        color: #DCCA87;
+        font-family: 'Cormorant Upright';
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 17px;
+        letter-spacing: 0.04em;
+        align-items: center;
+        border: none;
+        transition: 0.5s ease;
+
+       
+
+    }
+
+    .about-dropdown {
+        position: relative;
+        display: inline-block;
+
+    }
+
+    .aboutus-content {
+        display: none;
+        position: absolute;
+        background-color: #000000;
+        border-radius: 5px;
+        font-family: 'Cormorant Upright';
+        padding: 1em;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .aboutus-content p a {
+        color: #DCCA87;
+        padding: 8px 10px;
+        text-decoration: none;
+        display: block;
+        width: 110px;
+    }
+
+    .about-dropdown p a:hover {
+        background-color: white;
+        border-radius: 10px;
+        width: 90px;
+    }
+
+    .about-dropdown:hover .aboutus-content {
+        display: block;
+    }
+
+
+    ul a:hover {
+        color: #DCCA87;
+        transform: scale(1.2);
+    }
+
+    .search {
+        background-color: aqua;
+        display: flex;
+        background: white;
+        align-items: center;
+        height: 30px;
+        width: 100px;
+        margin-right: 120px;
+        padding-right: .4em;
+        border-radius: .4em;
+        position: absolute;
+        left: 150px;
+
+    }
+
+    .search input {
+        border: none;
+        background: transparent;
+        width: 60px;
+        height: 20px;
+        outline: none;
+    }
+
+    .search a {
+        width: 30px;
+        color: black;
+    }
+
+    .button {
+        background-color: transparent;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+        border: none;
+        width: 50%;
+        position: absolute;
+        right: -70px;
+
+
+
+    }
+
+    .button a {
+        color: #DCCA87;
+        font-family: 'Cormorant Upright';
+        font-weight: 400px;
+        font-size: 15px;
+        justify-content: space-between;
+        text-align: center;
+        text-decoration: none;
+        margin-right: 10px;
+        margin-bottom: 10px;
+
+    }
+
+    .button a:hover {
+        transition: 0.8s ease;
+    }
+
+
+    .button a::after {
+        content: "";
+        width: 100%;
+        background-color: white;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        transition: all 0.4s ease;
+    }
+
+    .button a:hover::after {
+
+        width: 100%;
+    }
+
+    .button img {
+        width: 29px;
+        height: 29px;
+        float: left;
+        border-radius: 25px;
+        transition: 0.5s ease;
+    }
+
+    .manu-bar {
+        display: inline-block;
+        color: #DCCA87;
+        font-size: 20px;
+        padding: 9px;
+        position: absolute;
+        z-index: 2px;
+    }
+
+    .nav [data-visible="true"] {
+        transform: translateX(0%);
+    }
+
 }
